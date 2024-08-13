@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-red-sig {
+    background-color: #B02000;
+}
+
+.border-red-sig {
+    border-color: #B02000;
+}
+
+.outline-red-sig {
+    outline: none;
+}
+
+.outline-red-sig:focus {
+    outline: #B02000 solid 1px;
+}
+
+.text-red-sig {
+    color: #B02000;
+}
+
+.text-orange-sig {
+    color: #FF461E;
+}
+
+.hover\:text-red-sig:hover {
+    color: #B02000;
+}
+
+.focused-text-red-sig:focus {
+    color: #B02000;
+}
+
+.bg-red-sig-gradient {
+    background-image: linear-gradient(90deg, #B02000, #FF370B);
+    /*background: linear-gradient(90deg, #FF370B 100%, #B02000 0%);*/
+}
+
+.bg-layer-cutout {
+    background-image: url("$lib/assets/Background/CheckoutTransparent.png");
+    background-size: cover;
+
+}
+
+.hovered-bg-red-sig-gradient {
+    background-image: linear-gradient(90deg, #B02000, #FF370B);
+}
+
+.bg-orange-sig {
+    background-color: #FF461E;
+}
+
+.hovered-bg-orange-sig:hover {
+    background-color: #de2d0a;
+}
+
+.home-selected-translate {
+    transform: translate(0%, 0);
+}
+
+.history-selected-translate {
+    transform: translate(100%, 0);
+}
+.responsive-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.bg-first-place {
+    background-image: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+.bg-second-place {
+    background-image: linear-gradient(90deg, #a99bb2, #6c4ad0);
+}
+
+.bg-third-place {
+    background-image: linear-gradient(90deg, #97bac0, #1f7c85);
+}
+
+@media screen and ( min-width: 768px ) {
+    .responsive-container {
+        max-width: 90%;
+    }
+}
+
+@media screen and ( min-width: 1024px ) {
+    .responsive-container {
+        max-width: 90%;
+    }
+}
+
+@media screen and ( min-width: 1280px ) {
+    .responsive-container {
+        max-width: 65%;
+    }
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Inter Regular'), local('Inter-Regular'), url("$lib/assets/Inter/static/Inter-Regular.ttf") format('truetype');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Karla Regular'), local('Karla-Regular'), url("$lib/assets/Karla/static/Karla-Regular.ttf") format('truetype');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
