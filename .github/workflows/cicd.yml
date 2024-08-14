@@ -42,6 +42,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: |
-            cd slcatering-docker/
+            cd slcatering-docker-fe/
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/slcatering_fe:latest
             docker compose up -d --build
