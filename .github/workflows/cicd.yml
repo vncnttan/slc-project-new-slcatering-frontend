@@ -44,4 +44,5 @@ jobs:
           script: |
             cd slcatering-docker-fe/
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/slcatering_fe:latest
+            docker compose down
             docker compose up -d --build
