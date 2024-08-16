@@ -2,5 +2,6 @@ version: '3.8'
 
 services:
   slcatering_fe:
+    image: vncnttan/slcatering-fe:latest
     ports:
       - "5000:3000"
