@@ -32,8 +32,8 @@ jobs:
       - name: Build and push Docker image
         run: |
           npm run image
-          docker tag slcatering_fe:latest ${{ secrets.DOCKERHUB_USERNAME }}/slcatering_fe:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/slcatering_fe:latest
+          docker tag slcatering-fe:latest ${{ secrets.DOCKERHUB_USERNAME }}/slcatering-fe:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/slcatering-fe:latest
       
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
@@ -43,6 +43,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: |
             cd slcatering-docker-fe/
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/slcatering_fe:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/slcatering-fe:latest
             docker compose down
             docker compose up -d
