@@ -40,7 +40,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ vars.VPS_IP }}
-          username: ${{ secrets.VPS_USER }}
+          username: ${{ vars.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: |
             cd slcatering-docker-fe/
