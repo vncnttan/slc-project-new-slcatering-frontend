@@ -1,0 +1,49 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+      
+      - name: Login to Dockerhub
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ vars.DOCKER_REGISTRY_LOCATION }}
+          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+          password: ${{ secrets.DOCKER_REGISTRY_PASS }}
+      - name: Creating env
+        run: |
+          touch .env
+          echo VITE_API_BASE_URL = ${{ vars.VITE_API_BASE_URL }} >> .env
+          echo VITE_BACKEND_BASE_URL = ${{ vars.VITE_BACKEND_BASE_URL }} >> .env
+          echo PUBLIC_FIREBASE_API_KEY = ${{ secrets.PUBLIC_FIREBASE_API_KEY }} >> .env
+          echo PUBLIC_FIREBASE_AUTH_DOMAIN = ${{ vars.PUBLIC_FIREBASE_AUTH_DOMAIN }} >> .env
+          echo PUBLIC_FIREBASE_STORAGE_BUCKET = ${{ vars.PUBLIC_FIREBASE_STORAGE_BUCKET }} >> .env
+          echo PUBLIC_FIREBASE_PROJECT_ID = ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }} >> .env
+          echo PUBLIC_FIREBASE_MESSAGING_SENDER_ID = ${{ vars.PUBLIC_FIREBASE_MESSAGING_SENDER_ID }} >> .env
+          echo PUBLIC_FIREBASE_APP_ID = ${{ vars.PUBLIC_FIREBASE_APP_ID }} >> .env
+          cat .env
+      - name: Build and push Docker image
+        run: |
+          npm run image
+          docker tag slcatering-fe:latest ${{ vars.DOCKER_REGISTRY_LOCATION }}/slcatering-fe:latest
+          docker push ${{ vars.DOCKER_REGISTRY_LOCATION }}/slcatering-fe:latest
+      
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ vars.VPS_IP }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY}}
+          script: |
+            cd slcatering-docker-fe/
+            docker pull ${{ vars.DOCKER_REGISTRY_LOCATION }}/slcatering-fe:latest
+            docker compose down
+            docker compose up -d
