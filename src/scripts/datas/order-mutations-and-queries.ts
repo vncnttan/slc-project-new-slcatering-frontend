@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { OrderRequestType } from '../custom-type-declarations';
 
 const base_url = import.meta.env.VITE_BACKEND_BASE_URL;
 
@@ -12,6 +13,15 @@ export function getCateringOrders(id: string) {
 
 export function getUserOrders(access_token: string) {
     return axios.get(`${base_url}/order`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${access_token}`
+        }
+    })
+}
+
+export function createOrder(order: OrderRequestType, access_token: string) {
+    return axios.post(`${base_url}/order`, order, {
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${access_token}`

@@ -5,19 +5,34 @@
         OrderRequestType,
     } from "../../../scripts/custom-type-declarations";
     import CheckoutQR from "./CheckoutQR.svelte";
+    import { onMount } from 'svelte';
+    import { createOrder } from '../../../scripts/datas/order-mutations-and-queries';
 
     export let menu: CateringType
     export let orderRequest: OrderRequestType
     export let currentStep: number
+    export let qrCodeString: string
+    export let accessToken: string | undefined
 
     function progressToNextStep() {
-        // TODO: Create logic to generate qr and websocket
         currentStep += 1
     }
 
     function progressToPreviousStep() {
         currentStep -= 1
     }
+
+    // TODO: Create logic to generate qr and websocket
+    onMount(async () => {
+        console.log("Payment OnMount Called");
+        if(!accessToken) {
+            console.log("No access token");
+            return;
+        } else {
+            const response = await createOrder(orderRequest, accessToken)
+            qrCodeString = response.data.qrString
+        }
+    })
 
     console.log(orderRequest)
 </script>
@@ -30,7 +45,7 @@
         </div>
         <div class="border-box-container">
             <!--        QR Code -->
-            <CheckoutQR/>
+            <CheckoutQR bind:qrCodeString/>
         </div>
     </div>
 

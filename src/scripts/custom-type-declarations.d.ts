@@ -55,9 +55,7 @@ export interface OrderType {
 
 export interface OrderRequestVariantDetailType {
     variant_id: string,
-    variant_name: string,
     quantity: number,
-    additional_price: number,
 }
 
 export interface OrderRequestType {

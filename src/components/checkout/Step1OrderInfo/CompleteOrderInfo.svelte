@@ -5,7 +5,6 @@
     import CheckoutBasicInfo from "../CheckoutBasicInfo.svelte";
     import type {CateringType, OrderRequestType} from "../../../scripts/custom-type-declarations";
 
-
     export let currentStep = 1
     export let menu: CateringType
     export let orderRequest: OrderRequestType;
@@ -48,6 +47,7 @@
             showToast("Please select at least one variant with non-zero quantity", TOAST_TYPE.ERROR)
             return
         }
+
         currentStep += 1
     }
 

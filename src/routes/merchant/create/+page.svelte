@@ -24,7 +24,7 @@
         image: null
     };
 
-    async function submitSchedulCateringForm() {
+    async function submitScheduleCateringForm() {
         if (menuInformation.title === "" ||
             menuInformation.date === "" ||
             menuInformation.stock === "" ||
@@ -83,7 +83,7 @@
             </div>
             <CreateMenuVariantForm menuInformation={menuInformation}/>
         </div>
-        <button on:click={submitSchedulCateringForm}
+        <button on:click={submitScheduleCateringForm}
                 class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-fit px-5 py-3 text-center red-700 red-800">
             Create Menu
         </button>
