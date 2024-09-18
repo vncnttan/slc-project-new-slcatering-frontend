@@ -16,6 +16,8 @@
 
     let orderRequest = {
         variants: [{
+            variant_name: "Reguler",
+            additional_price: 0,
             variant_id: "Reguler",
             quantity: 1
         }]
