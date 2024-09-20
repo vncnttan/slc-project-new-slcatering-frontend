@@ -22,7 +22,7 @@
         currentStep -= 1
     }
 
-    // TODO: Create logic to generate qr and websocket
+    let userId = ""
     onMount(async () => {
         console.log("Payment OnMount Called");
         if(!accessToken) {
@@ -30,11 +30,33 @@
             return;
         } else {
             const response = await createOrder(orderRequest, accessToken)
-            qrCodeString = response.data.qrString
+            qrCodeString = response.data.qr_string
+            userId = response.data.ordered_by
         }
-    })
 
-    console.log(orderRequest)
+        console.log(qrCodeString);
+
+        const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+        console.log("Protocol: ", protocol);
+        const socket = new WebSocket(`${protocol}://localhost:8000/ws/qrcode/${userId}/`);
+
+        socket.onopen = () => {
+            console.log("Connection established");
+        };
+
+        socket.onmessage = (ev) => {
+            const data = JSON.parse(ev.data);
+
+            if (data.type === 'payment_success') {
+                progressToNextStep();
+            }
+        };
+
+        socket.onerror = (error) => {
+            console.error("WebSocket error observed:", error);
+        };
+
+    })
 </script>
 
 <div class="flex flex-col gap-12 place-items-center w-full">
@@ -52,9 +74,6 @@
     <button class="py-3 w-48 bg-gray-400 hover:bg-gray-500 rounded-lg text-white text-xl" on:click={progressToPreviousStep}> Cancel
     </button>
 </div>
-
-<!--TODO: Comment this so that they will progress with websocket-->
-<button class="py-3 bg-orange-sig rounded-lg text-white text-xl" on:click={progressToNextStep}> Continue</button>
 
 <style>
     .page-container {
