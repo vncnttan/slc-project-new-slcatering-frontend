@@ -14,6 +14,7 @@
             return;
         }
         orders = (await getUserOrders(access_token)).data
+        console.log(orders);
         loading = false
     });
 </script>
@@ -34,6 +35,9 @@
                 <tr>
                     <th scope="col" class="hidden md:block px-6 py-3 text-center">
                         Date
+                    </th>
+                    <th scope="col" class="px-2 py-3 text-center">
+                        Qty
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Product name
@@ -59,6 +63,9 @@
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap hidden text-center md:block">
                             {order.catering.date}
                         </th>
+                        <td class="px-2 py-4 text-center">
+                            {order.quantity}
+                        </td>
                         <td class="px-6 py-4">
                             {order.catering.title}
                         </td>

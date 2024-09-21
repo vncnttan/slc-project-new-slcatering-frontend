@@ -40,8 +40,10 @@ export const showToast = (message: string, type: TOAST_TYPE) => {
 }
 
 export const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("id-ID", {
+    const formatted = new Intl.NumberFormat("id-ID", {
         style: "currency",
-        currency: "IDR"
+        currency: "IDR",
     }).format(price);
+
+    return formatted.slice(0, -3) + ",-";
 }

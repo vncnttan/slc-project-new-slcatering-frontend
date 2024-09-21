@@ -31,6 +31,7 @@
 
     onMount(async () => {
         menu = (await getCateringDetailsById(id)).data
+        console.log("Menu: ", menu);
         orderRequest.catering_id = menu.id
     })
     let currentStep = 1;

@@ -39,6 +39,7 @@ export interface OrderType {
         title: string,
         date: string,
     },
+    quantity: number,
     is_paid: boolean,
     notes: string,
     ordered_by: {
@@ -56,8 +57,8 @@ export interface OrderType {
 export interface OrderRequestVariantDetailType {
     variant_id: string,
     quantity: number,
-    variant_name ?: string,
-    additional_price ?: number
+    variant_name: string,
+    additional_price: number
 }
 
 export interface OrderRequestType {

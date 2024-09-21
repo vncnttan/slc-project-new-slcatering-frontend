@@ -35,6 +35,9 @@
                 <th scope="col" class="px-4 py-3">
                     Customer
                 </th>
+                <th scope="col" class="px-1 py-3">
+                    Qty
+                </th>
                 <th scope="col" class="px-4 py-3 text-center">
                     Variant
                 </th>
@@ -58,8 +61,11 @@
                     <th scope="row" class="px-4 py-4 text-gray-900 whitespace-nowrap">
                         {order.ordered_by.username}
                     </th>
+                    <th scope="row" class="px-4 py-4 text-gray-900 whitespace-nowrap">
+                        {order.quantity}
+                    </th>
                     <td class="px-4 py-4 text-center">
-                        {order.variant?.variant_name ?? "Regular"}
+                        {order.variant?.variant_name ?? "Reguler"}
                     </td>
                     <td class="py-4 text-center">
                         {order.notes !== "" ? order.notes : "-"}
