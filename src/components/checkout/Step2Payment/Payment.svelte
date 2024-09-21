@@ -2,7 +2,7 @@
     import CheckoutSummary from "./CheckoutSummary.svelte";
     import type {
         CateringType,
-        OrderRequestType,
+        OrderRequestType, PaymentResponseType
     } from "../../../scripts/custom-type-declarations";
     import CheckoutQR from "./CheckoutQR.svelte";
     import { onMount } from 'svelte';
@@ -13,6 +13,7 @@
     export let currentStep: number
     export let qrCodeString: string
     export let accessToken: string | undefined
+    export let paymentResponse: PaymentResponseType | undefined
 
     function progressToNextStep() {
         currentStep += 1
@@ -46,11 +47,13 @@
 
         socket.onmessage = (ev) => {
             const data = JSON.parse(ev.data);
-
+            console.log("Data From Websocket: ", data)
             if (data.type === 'payment_success') {
+                paymentResponse = data
                 progressToNextStep();
             }
         };
+
 
         socket.onerror = (error) => {
             console.error("WebSocket error observed:", error);

@@ -6,7 +6,11 @@
     import {getCateringDetailsById} from "../../../scripts/datas/catering-mutations-and-queries";
     import CompleteOrderInfo from "../../../components/checkout/Step1OrderInfo/CompleteOrderInfo.svelte";
     import Payment from "../../../components/checkout/Step2Payment/Payment.svelte";
-    import type {CateringType, OrderRequestType} from "../../../scripts/custom-type-declarations";
+    import type {
+        CateringType,
+        OrderRequestType,
+        PaymentResponseType
+    } from "../../../scripts/custom-type-declarations";
     import OrderCompleted from "../../../components/checkout/Step3Completed/OrderCompleted.svelte";
 
     let id = $page.params.id;
@@ -23,6 +27,7 @@
         }]
     } as OrderRequestType
 
+    let paymentResponse: PaymentResponseType | undefined
 
     onMount(async () => {
         menu = (await getCateringDetailsById(id)).data
@@ -37,8 +42,8 @@
     {#if currentStep === 1}
         <CompleteOrderInfo bind:currentStep menu={menu} bind:orderRequest/>
     {:else if currentStep === 2}
-        <Payment menu={menu} orderRequest={orderRequest} bind:qrCodeString bind:currentStep accessToken={data.user?.token}/>
+        <Payment menu={menu} orderRequest={orderRequest} bind:qrCodeString bind:currentStep bind:paymentResponse accessToken={data.user?.token}/>
     {:else}
-        <OrderCompleted/>
+        <OrderCompleted bind:paymentResponse cateringId={orderRequest.catering_id}/>
     {/if}
 </CheckoutLayout>

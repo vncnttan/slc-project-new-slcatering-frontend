@@ -66,6 +66,13 @@ export interface OrderRequestType {
     notes: string,
 }
 
+export interface PaymentResponseType {
+    deliverDate: string,
+    message: string,
+    publisherId: string,
+    type: string
+}
+
 export type CustomerType = {
     id: string,
     username: string,

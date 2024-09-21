@@ -70,7 +70,6 @@
     {#if loading}
         <div in:fade={{ delay: 500 }} out:fade
              class="w-full h-96 flex flex-row justify-center items-center animate-pulse bg-gray-200">
-
         </div>
     {:else if menus.length === 0}
         <div in:fade={{ delay: 500 }} out:fade class="w-full h-96 flex flex-row justify-center items-center">
@@ -89,7 +88,7 @@
                     <div class="w-full h-96 flex flex-row justify-between place-items-end absolute font-inter p-4 md:p-6 2xl:p-10">
                         <a href="/product-detail/{m.id}" class="flex flex-row gap-3 place-items-center">
                             <img src="{m.imageLink ?? 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg'}"
-                                 alt="Menu Preview" class="w-20 h-20 rounded-md object-cover"/>
+                                 alt="Menu Preview" class="w-20 h-20 object-cover"/>
                             <div class="flex flex-col">
                                 <div class="text-white">
                                     {m.created_by.store_name}
