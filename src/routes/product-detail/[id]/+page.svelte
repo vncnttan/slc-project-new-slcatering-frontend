@@ -15,11 +15,18 @@
 
     afterNavigate(({from}) => {
         previousPage = from?.url.pathname || previousPage
+
     })
 
     onMount(async () => {
         menu = (await getCateringDetailsById(id)).data
     })
+
+    $: {
+        if (previousPage.startsWith('/product-detail/') || previousPage.startsWith('/checkout/') || previousPage == ''){
+            previousPage = "/"
+        }
+    }
 </script>
 
 <div class="w-full h-screen flex flex-col xl:flex-row">
