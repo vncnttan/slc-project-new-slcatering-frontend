@@ -116,7 +116,7 @@
 					<span class="hidden xl:inline">
 							Mau makan apa hari ini?
 					</span>
-					<Typewriter texts={["Budi 🤤", "Nasi Bakar", "Ayam Goreng", "Nasi Hainam", "Burger", "Bakpao"]} />
+					<Typewriter texts={["Budi 🤤", "Nasi Bakar", "Ayam Goreng", "Nasi Hainam", "Burger", "Bakpao", "Nasi Uduk", "Nasi  Kuning"]} />
 				</div>
 			</div>
 			{#if data.user}

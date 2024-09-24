@@ -19,7 +19,7 @@ export const handle: Handle = async ({event, resolve}) => {
     // @ts-expect-error
     if (!event.locals.user) {
         // Authenticate User Pages (Logged Out)
-        const userPages = ["/history"]
+        const userPages = ["/history", '/checkout']
         if(userPages.includes(event.url.pathname)) {
             throw redirect(303, "/login")
         }
