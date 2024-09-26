@@ -3,6 +3,8 @@ export interface MenuInformationType {
     title: string,
     date: string,
     stock: string,
+    description: string,
+    weightPortion: string,
     price: string,
     catering_variants: VariantType[],
 }
@@ -20,6 +22,8 @@ export interface CateringType {
     imageLink: string | null,
     price: number,
     is_closed: boolean,
+    description: string,
+    weightPortion: string,
     merchant: string,
     date: string,
     order_count: number,
