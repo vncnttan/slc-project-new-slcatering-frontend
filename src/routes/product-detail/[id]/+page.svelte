@@ -5,8 +5,8 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { getCateringDetailsById } from '../../../scripts/datas/catering-mutations-and-queries';
-	import type { CateringType } from '../../../scripts/custom-type-declarations';
 	import { formatPrice } from '../../../scripts/helpers';
+	import type { CateringType } from '../../../../types/catering.type';
 
 	let id = $page.params.id;
 	let menu = {} as CateringType;

@@ -3,7 +3,8 @@
     import TextField from "../../form/TextField.svelte";
     import OrderMultipleVariants from "./OrderMultipleVariants.svelte";
     import CheckoutBasicInfo from "../CheckoutBasicInfo.svelte";
-    import type {CateringType, OrderRequestType} from "../../../scripts/custom-type-declarations";
+    import type { CateringType } from '../../../../types/catering.type';
+    import type { OrderRequestType } from '../../../../types/order-request.type';
 
     export let currentStep = 1
     export let menu: CateringType

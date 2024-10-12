@@ -1,6 +1,7 @@
 <script lang="ts">
     import slcatering_logo from "$lib/assets/slcatering_logo.png"
-    import type { PaymentResponseType } from "../../../scripts/custom-type-declarations";
+
+		import type { PaymentResponseType } from '../../../../types/payment-response.type';
     export let paymentResponse: PaymentResponseType | undefined;
     export let cateringId: string | undefined;
 

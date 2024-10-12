@@ -3,8 +3,8 @@
     import {onMount} from "svelte";
     import {getActiveMenus} from "../../scripts/datas/catering-mutations-and-queries";
     import {fade} from 'svelte/transition';
-    import type {CateringType} from "../../scripts/custom-type-declarations";
     import {formatPrice} from "../../scripts/helpers";
+		import type { CateringType } from '../../../types/catering.type';
 
     let slider: Siema | null = null;
     let prev: () => void

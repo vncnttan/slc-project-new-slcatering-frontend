@@ -1,8 +1,8 @@
 <script lang="ts">
     import {onMount} from "svelte";
     import {getCateringByMerchantId} from "../../scripts/datas/catering-mutations-and-queries";
-    import type {CateringType} from "../../scripts/custom-type-declarations";
     import {formatPrice} from "../../scripts/helpers";
+		import type { CateringType } from '../../../types/catering.type';
 
     export let access_token: string | undefined;
     let products: CateringType[] = [];

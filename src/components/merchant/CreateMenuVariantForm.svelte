@@ -1,6 +1,7 @@
 <script lang="ts">
     import {toast} from "@zerodevx/svelte-toast";
-    import type {MenuInformationType} from "../../scripts/custom-type-declarations";
+
+		import type { MenuInformationType } from '../../types/menu-information.type';
 
 
     export let menuInformation: MenuInformationType;

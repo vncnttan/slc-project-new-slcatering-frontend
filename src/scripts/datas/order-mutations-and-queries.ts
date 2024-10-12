@@ -1,5 +1,6 @@
 import axios from "axios";
-import type { OrderRequestType } from '../custom-type-declarations';
+
+import type { OrderRequestType } from '../../../types/order-request.type';
 
 const base_url = import.meta.env.VITE_BACKEND_BASE_URL;
 

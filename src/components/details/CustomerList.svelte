@@ -2,8 +2,8 @@
     import {onMount} from "svelte";
     import {getCateringOrders} from "../../scripts/datas/order-mutations-and-queries";
     import {fade} from 'svelte/transition';
-    import type {OrderType} from "../../scripts/custom-type-declarations";
     import {formatPrice} from "../../scripts/helpers";
+		import type { OrderType } from '../../../types/order.type';
 
     export let catering_id: string
     let orders: OrderType[] = []

@@ -1,10 +1,8 @@
 <script lang="ts">
     import CheckoutBasicInfo from "../CheckoutBasicInfo.svelte";
     import CheckoutPrice from "./CheckoutPrice.svelte";
-    import type {
-        CateringType,
-        OrderRequestType,
-    } from "../../../scripts/custom-type-declarations";
+    import type { CateringType } from '../../../../types/catering.type';
+    import type { OrderRequestType } from '../../../../types/order-request.type';
     export let menu: CateringType
     export let orderRequest: OrderRequestType
 </script>

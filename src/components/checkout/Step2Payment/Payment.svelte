@@ -1,12 +1,11 @@
 <script lang="ts">
     import CheckoutSummary from "./CheckoutSummary.svelte";
-    import type {
-        CateringType,
-        OrderRequestType, PaymentResponseType
-    } from "../../../scripts/custom-type-declarations";
     import CheckoutQR from "./CheckoutQR.svelte";
     import { onMount } from 'svelte';
     import { createOrder } from '../../../scripts/datas/order-mutations-and-queries';
+		import type { CateringType } from '../../../../types/catering.type';
+    import type { OrderRequestType } from '../../../../types/order-request.type';
+		import type { PaymentResponseType } from '../../../../types/payment-response.type';
 
     export let menu: CateringType
     export let orderRequest: OrderRequestType

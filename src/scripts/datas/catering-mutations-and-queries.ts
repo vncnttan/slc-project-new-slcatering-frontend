@@ -1,6 +1,7 @@
 
 import axios from "axios";
-import type {MenuInformationType} from "../custom-type-declarations";
+
+import type { MenuInformationType } from '../../types/menu-information.type';
 
 
 const base_url = import.meta.env.VITE_BACKEND_BASE_URL;
