@@ -54,7 +54,7 @@
 
 </script>
 
-<div class="information-container">
+<div class="information-container xl:grid-cols-2 md:grid-rows-1 grid-rows-2 p-[10%] xl:p-0">
     <!--    TODO: Responsive Checkout -->
     <!--    Pertanyaan: Disini gabisa liat harga? -->
     <div class="w-full h-full">
@@ -81,7 +81,6 @@
 <style>
     .information-container {
         display: grid;
-        grid-template-columns: 4fr 5fr;
         gap: 4rem;
     }
 </style>
