@@ -4,7 +4,7 @@
 	import { getActiveMenus } from '../../scripts/datas/catering-mutations-and-queries';
 	import { fade } from 'svelte/transition';
 	import type { CateringType } from '../../../types/catering.type';
-	import CarouselContent from '../CarouselContent.svelte';
+	import CarouselContent from './CarouselContent.svelte';
 
 	let menus = [] as CateringType[];
 
@@ -57,30 +57,4 @@
 	{/if}
 
 
-	<!--    Slider Radio Button -->
-	<!--{#if menus.length > 1}-->
-	<!--	<div class="md:flex justify-center items-center">-->
-	<!--		{#each menus as _, i} &lt;!&ndash; eslint-disable-line @typescript-eslint/no-unused-vars &ndash;&gt;-->
-	<!--			<button-->
-	<!--				class={"w-2 h-2 rounded-full mx-1 mt-4 cursor-pointer " + (currentIndex === i ? "bg-gray-400" : "bg-gray-300")}-->
-	<!--				on:click={() => {-->
-	<!--              currentIndex = i;-->
-	<!--          }}></button>-->
-	<!--		{/each}-->
-	<!--	</div>-->
-	<!--	<button on:click={prev} class="hidden md:block absolute top-[45%] left-[-3rem] text-black">-->
-	<!--		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"-->
-	<!--				 stroke="currentColor"-->
-	<!--				 class="size-8">-->
-	<!--			<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />-->
-	<!--		</svg>-->
-	<!--	</button>-->
-	<!--	<button on:click={next} class="hidden md:block absolute top-[45%] right-[-3rem] text-black">-->
-	<!--		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"-->
-	<!--				 stroke="currentColor"-->
-	<!--				 class="size-8">-->
-	<!--			<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />-->
-	<!--		</svg>-->
-	<!--	</button>-->
-	<!--{/if}-->
 </div>

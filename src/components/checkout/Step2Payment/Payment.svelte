@@ -13,6 +13,9 @@
 	export let qrCodeString: string;
 	export let accessToken: string | undefined;
 	export let paymentResponse: PaymentResponseType | undefined;
+	import {
+		PUBLIC_WEBSOCKET_LOCATION
+	} from '$env/static/public';
 
 	function progressToNextStep() {
 		currentStep += 1;
@@ -37,8 +40,7 @@
 		console.log(qrCodeString);
 
 		const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-		console.log('Protocol: ', protocol);
-		const socket = new WebSocket(`${protocol}://localhost:8000/ws/qrcode/${userId}/`);
+		const socket = new WebSocket(`${protocol}://${PUBLIC_WEBSOCKET_LOCATION}:8000/ws/qrcode/${userId}/`);
 
 		socket.onopen = () => {
 			console.log('Connection established');

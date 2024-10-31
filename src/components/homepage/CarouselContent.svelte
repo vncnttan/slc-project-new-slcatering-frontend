@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { formatPrice } from '../scripts/helpers.js';
-	import type { CateringType } from '../../types/catering.type';
+	import { formatPrice } from '../../scripts/helpers.js';
+	import type { CateringType } from '../../../types/catering.type';
 
 	export let m: CateringType;
 	export let idx: number;
