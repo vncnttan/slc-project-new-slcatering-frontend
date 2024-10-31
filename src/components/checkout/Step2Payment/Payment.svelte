@@ -40,7 +40,7 @@
 		console.log(qrCodeString);
 
 		const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-		const socket = new WebSocket(`${protocol}://${PUBLIC_WEBSOCKET_LOCATION}:8000/ws/qrcode/${userId}/`);
+		const socket = new WebSocket(`ws://${PUBLIC_WEBSOCKET_LOCATION}:8000/ws/qrcode/${userId}/`);
 
 		socket.onopen = () => {
 			console.log('Connection established');
