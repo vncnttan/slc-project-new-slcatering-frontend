@@ -7,6 +7,7 @@
 	import CarouselContent from './CarouselContent.svelte';
 
 	let menus = [] as CateringType[];
+	export let isLoggedIn: boolean;
 
 	$: if (menus.length > 0) {
 		console.log(menus);
@@ -45,7 +46,7 @@
 					<Carousel.Content>
 						{#each menus as m, idx}
 							<Carousel.Item>
-								<CarouselContent {m} {idx} />
+								<CarouselContent {m} {idx} bind:isLoggedIn />
 							</Carousel.Item>
 						{/each}
 					</Carousel.Content>

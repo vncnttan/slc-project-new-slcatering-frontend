@@ -1,9 +1,24 @@
 <script lang="ts">
-	import { formatPrice } from '../../scripts/helpers.js';
+	import { formatPrice, showToast, TOAST_TYPE } from '../../scripts/helpers.js';
 	import type { CateringType } from '../../../types/catering.type';
+	import { goto } from '$app/navigation';
 
 	export let m: CateringType;
 	export let idx: number;
+	export let isLoggedIn: boolean;
+
+	let navigateNavbar = (destinationLink: string) => {
+
+		if (isLoggedIn) {
+			goto(destinationLink);
+		} else {
+			console.log('You need to login before accessing checkout page');
+			showToast('You need to login before accessing checkout page', TOAST_TYPE.WARNING);
+			goto('/login');
+		}
+	};
+
+
 </script>
 
 <div class="h-96 relative bg-no-repeat bg-cover bg-center rounded-xl bg-red-sig, {idx}"
@@ -34,12 +49,10 @@
 					Details
 				</button>
 			</a>
-			<a href="/checkout/{m.id}">
-				<button
+				<button on:click={() => navigateNavbar(`/checkout/${m.id}`) }
 					class="bg-red-600 hover:bg-red-700 text-normal text-lg text-white rounded-xl p-1 md:p-3 font-semibold tracking-wide w-20 md:w-28">
 					Order
 				</button>
-			</a>
 		</div>
 	</div>
 </div>
