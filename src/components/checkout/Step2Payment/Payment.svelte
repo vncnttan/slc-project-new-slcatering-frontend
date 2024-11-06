@@ -27,9 +27,9 @@
 
 	let userId = '';
 	onMount(async () => {
-		console.log('Payment OnMount Called');
+		// console.log('Payment OnMount Called');
 		if (!accessToken) {
-			console.log('No access token');
+			// console.log('No access token');
 			return;
 		} else {
 			const response = await createOrder(orderRequest, accessToken);
@@ -37,18 +37,18 @@
 			userId = response.data.ordered_by;
 		}
 
-		console.log(qrCodeString);
+		// console.log(qrCodeString);
 
 		const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
 		const socket = new WebSocket(`${protocol}://${PUBLIC_WEBSOCKET_LOCATION}/ws/qrcode/${userId}/`);
 
 		socket.onopen = () => {
-			console.log('Connection established');
+			// console.log('Connection established');
 		};
 
 		socket.onmessage = (ev) => {
 			const data = JSON.parse(ev.data);
-			console.log('Data From Websocket: ', data);
+			// console.log('Data From Websocket: ', data);
 			if (data.type === 'payment_success') {
 				paymentResponse = data;
 				progressToNextStep();

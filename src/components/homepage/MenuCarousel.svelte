@@ -10,7 +10,7 @@
 	export let isLoggedIn: boolean;
 
 	$: if (menus.length > 0) {
-		console.log(menus);
+		// console.log(menus);
 	}
 
 

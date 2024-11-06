@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { afterNavigate, goto, invalidateAll } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import CustomerList from '../../../components/details/CustomerList.svelte';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';

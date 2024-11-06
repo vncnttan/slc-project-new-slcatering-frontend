@@ -12,7 +12,7 @@
 		if (isLoggedIn) {
 			goto(destinationLink);
 		} else {
-			console.log('You need to login before accessing checkout page');
+			// console.log('You need to login before accessing checkout page');
 			showToast('You need to login before accessing checkout page', TOAST_TYPE.WARNING);
 			goto('/login');
 		}
