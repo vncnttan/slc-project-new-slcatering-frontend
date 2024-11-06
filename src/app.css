@@ -82,6 +82,10 @@
   background-color: #B02000;
 }
 
+.hovered-bg-red-sig:hover {
+    background-color: #9f1c00;
+}
+
 .border-red-sig {
   border-color: #B02000;
 }
