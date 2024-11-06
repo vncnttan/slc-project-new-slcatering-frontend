@@ -45,7 +45,7 @@
 			}
 			await closeCatering(menu.id, data.user?.token);
 			showToast('Menu closed successfully', TOAST_TYPE.SUCCESS);
-			invalidateAll();
+			window.location.reload()
 		} catch (e) {
 			showToast('Failed to close menu', TOAST_TYPE.ERROR);
 		}
