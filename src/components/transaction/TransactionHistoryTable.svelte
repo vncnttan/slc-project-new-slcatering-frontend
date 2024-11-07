@@ -14,7 +14,6 @@
             return;
         }
         orders = (await getUserOrders(access_token)).data
-        // console.log(orders);
         loading = false
     });
 </script>

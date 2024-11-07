@@ -9,9 +9,6 @@
 	let menus = [] as CateringType[];
 	export let isLoggedIn: boolean;
 
-	$: if (menus.length > 0) {
-		// console.log(menus);
-	}
 
 
 	let loading = true;
