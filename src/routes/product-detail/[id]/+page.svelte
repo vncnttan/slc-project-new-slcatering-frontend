@@ -34,7 +34,7 @@
 	}
 
 	async function handleCloseCatering() {
-		if (data.user.username !== menu.created_by?.username && data.user.role !== 'merchant') {
+		if (data.user?.username !== menu.created_by?.username && data.user?.role !== 'merchant') {
 			showToast('You are not allowed to close this catering', TOAST_TYPE.ERROR);
 		}
 
@@ -109,7 +109,7 @@
 							* Price may vary depends on your variant and merchant
 						</div>
 
-						{#if data.user.username === menu.created_by?.username && data.user.role === 'merchant' && menu.is_closed === false}
+						{#if data.user && data.user?.username === menu.created_by?.username && data.user?.role === 'merchant' && menu.is_closed === false}
 							<button
 								class="mt-4 py-2 px-4 bg-red-sig hovered-bg-red-sig text-white rounded font-semibold flex flex-row gap-2 w-fit place-items-center"
 								on:click={handleCloseCatering}>
