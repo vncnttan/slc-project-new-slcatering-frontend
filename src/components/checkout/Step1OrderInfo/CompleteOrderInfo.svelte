@@ -3,7 +3,8 @@
     import TextField from "../../form/TextField.svelte";
     import OrderMultipleVariants from "./OrderMultipleVariants.svelte";
     import CheckoutBasicInfo from "../CheckoutBasicInfo.svelte";
-    import type {CateringType, OrderRequestType} from "../../../scripts/custom-type-declarations";
+    import type { CateringType } from '../../../../types/catering.type';
+    import type { OrderRequestType } from '../../../../types/order-request.type';
 
     export let currentStep = 1
     export let menu: CateringType
@@ -53,15 +54,13 @@
 
 </script>
 
-<div class="information-container">
-    <!--    TODO: Responsive Checkout -->
-    <!--    Pertanyaan: Disini gabisa liat harga? -->
+<div class="information-container xl:grid-cols-2 md:grid-rows-1 grid-rows-2 p-[10%] xl:p-0">
     <div class="w-full h-full">
         <!--        Image Section-->
         <img src={menu.imageLink} alt="Food" class="w-full h-[50vh] rounded-xl object-contain lg:object-cover"/>
     </div>
     <div class="w-full h-full py-4 flex flex-col gap-12 text-lg">
-        <CheckoutBasicInfo menuTitle={menu.title} merchantStoreName={menu.created_by?.store_name}/>
+        <CheckoutBasicInfo menuTitle={menu.title} merchantStoreName={menu.created_by?.store_name} menuPrice={menu.price}/>
         <OrderMultipleVariants variants={menu.catering_variants} bind:selectedVariants={orderRequest.variants}/>
         <div class="flex flex-col gap-1">
             <div class="font-medium font-karla text-gray-500">Notes</div>
@@ -80,7 +79,6 @@
 <style>
     .information-container {
         display: grid;
-        grid-template-columns: 4fr 5fr;
         gap: 4rem;
     }
 </style>

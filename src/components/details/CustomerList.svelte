@@ -1,9 +1,17 @@
 <script lang="ts">
+<<<<<<< HEAD
   import { onMount } from "svelte";
   import { getCateringOrders } from "../../scripts/datas/order-mutations-and-queries";
   import { fade } from "svelte/transition";
   import type { OrderType } from "../../scripts/custom-type-declarations";
   import { formatPrice } from "../../scripts/helpers";
+=======
+    import {onMount} from "svelte";
+    import {getCateringOrders} from "../../scripts/datas/order-mutations-and-queries";
+    import {fade} from 'svelte/transition';
+    import {formatPrice} from "../../scripts/helpers";
+		import type { OrderType } from '../../../types/order.type';
+>>>>>>> 33327cb72d1b3fb4a22cba78a2ddab68a94200d9
 
   export let catering_id: string;
   let orders: OrderType[] = [];

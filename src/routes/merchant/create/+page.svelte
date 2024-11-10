@@ -7,7 +7,8 @@
     import {uploadFile} from "../../../scripts/firebase_upload";
     import type {PageData} from "./$types";
     import {goto} from "$app/navigation";
-    import type {MenuInformationType} from "../../../scripts/custom-type-declarations";
+
+    import type { MenuInformationType } from '../../../types/menu-information.type';
 
     export let data: PageData;
 

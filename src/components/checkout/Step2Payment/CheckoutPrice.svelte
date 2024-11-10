@@ -1,7 +1,8 @@
 <script lang="ts">
 
-    import type {CateringType, OrderRequestVariantDetailType} from "../../../scripts/custom-type-declarations";
     import {formatPrice} from "../../../scripts/helpers";
+		import type { CateringType } from '../../../../types/catering.type';
+    import type { OrderRequestVariantDetailType } from '../../../../types/order-request-variant-detail.type';
 
     export let selectedVariants: OrderRequestVariantDetailType[];
     export let menu: CateringType;

@@ -3,7 +3,8 @@
     import QuantitySelector from "../../form/QuantitySelector.svelte";
     import CreateVariant from "../../form/CreateVariant.svelte";
     import DeleteVariant from "../../form/DeleteVariant.svelte";
-    import type {OrderRequestVariantDetailType, VariantType} from "../../../scripts/custom-type-declarations";
+    import type { VariantType } from '../../../../types/variant.type';
+    import type { OrderRequestVariantDetailType } from '../../../../types/order-request-variant-detail.type';
 
     export let variants = [] as VariantType[];
 

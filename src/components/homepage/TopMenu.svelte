@@ -2,7 +2,8 @@
 
     import {onMount} from "svelte";
     import {getMostPopularMenu} from "../../scripts/datas/catering-mutations-and-queries";
-    import type {CateringType} from "../../scripts/custom-type-declarations";
+
+		import type { CateringType } from '../../../types/catering.type';
 
     let menus: CateringType[] = []
 

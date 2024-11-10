@@ -19,7 +19,7 @@
     $: progress.set((currentStep - 1) * 50);
 </script>
 
-<div class="w-full grid grid-cols-3 relative ">
+<div class="w-full hidden xl:grid grid-cols-3 relative">
     <div class="dash-container">
         <div class="dashed-line" style="width: 100%;"></div>
         <div class="completed-line" style="width: {$progress}%;"></div>

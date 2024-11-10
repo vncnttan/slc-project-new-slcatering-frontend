@@ -1,6 +1,7 @@
 import type {Handle} from "@sveltejs/kit";
 import {redirect} from "@sveltejs/kit";
 import {authenticateUser} from "$lib/server/auth";
+import { showToast, TOAST_TYPE } from './scripts/helpers';
 
 export const handle: Handle = async ({event, resolve}) => {
     // Authentication
@@ -21,6 +22,10 @@ export const handle: Handle = async ({event, resolve}) => {
         // Authenticate User Pages (Logged Out)
         const userPages = ["/history", '/checkout']
         if(userPages.includes(event.url.pathname)) {
+            throw redirect(303, "/login")
+        }
+
+        if (event.url.pathname.startsWith("/checkout")) {
             throw redirect(303, "/login")
         }
     }

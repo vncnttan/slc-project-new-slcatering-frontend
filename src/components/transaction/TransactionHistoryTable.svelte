@@ -2,8 +2,8 @@
     import {onMount} from "svelte";
     import {getUserOrders} from "../../scripts/datas/order-mutations-and-queries";
     import {fade} from 'svelte/transition';
-    import type {OrderType} from "../../scripts/custom-type-declarations";
     import {formatPrice} from "../../scripts/helpers";
+		import type { OrderType } from '../../../types/order.type';
 
     export let access_token: string | undefined;
     let orders: OrderType[] = [];
@@ -14,7 +14,6 @@
             return;
         }
         orders = (await getUserOrders(access_token)).data
-        console.log(orders);
         loading = false
     });
 </script>

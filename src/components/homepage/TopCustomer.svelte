@@ -2,7 +2,8 @@
 
     import {onMount} from "svelte";
     import {getTopCustomer} from "../../scripts/datas/user-mutations-and-queries";
-    import type {CustomerType} from "../../scripts/custom-type-declarations";
+
+		import type { CustomerType } from '../../../types/customer.type';
 
     let highscoreCustomers: CustomerType[] = [];
     onMount(async () => {

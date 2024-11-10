@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type {OrderRequestVariantDetailType} from "../../scripts/custom-type-declarations";
+
+	import type { OrderRequestVariantDetailType } from '../../../types/order-request-variant-detail.type';
 
     export let selectedVariants: OrderRequestVariantDetailType[]
 

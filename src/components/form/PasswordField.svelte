@@ -29,5 +29,5 @@
            on:focus={fieldFocus}
            on:blur={fieldBlur}
            bind:value="{inputValue}"
-           placeholder="Username">
+           placeholder="Password">
 </div>

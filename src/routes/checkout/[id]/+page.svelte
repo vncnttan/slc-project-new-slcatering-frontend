@@ -6,12 +6,10 @@
     import {getCateringDetailsById} from "../../../scripts/datas/catering-mutations-and-queries";
     import CompleteOrderInfo from "../../../components/checkout/Step1OrderInfo/CompleteOrderInfo.svelte";
     import Payment from "../../../components/checkout/Step2Payment/Payment.svelte";
-    import type {
-        CateringType,
-        OrderRequestType,
-        PaymentResponseType
-    } from "../../../scripts/custom-type-declarations";
     import OrderCompleted from "../../../components/checkout/Step3Completed/OrderCompleted.svelte";
+		import type { CateringType } from '../../../../types/catering.type';
+    import type { OrderRequestType } from '../../../../types/order-request.type';
+		import type { PaymentResponseType } from '../../../../types/payment-response.type';
 
     let id = $page.params.id;
     let menu = {} as CateringType;
@@ -31,7 +29,6 @@
 
     onMount(async () => {
         menu = (await getCateringDetailsById(id)).data
-        console.log("Menu: ", menu);
         orderRequest.catering_id = menu.id
     })
     let currentStep = 1;
