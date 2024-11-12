@@ -13,7 +13,6 @@
 
     let id = $page.params.id;
     let menu = {} as CateringType;
-    let qrCodeString: string = ""
     export let data: PageData;
 
     let orderRequest = {
@@ -40,7 +39,7 @@
     {#if currentStep === 1}
         <CompleteOrderInfo bind:currentStep menu={menu} bind:orderRequest/>
     {:else if currentStep === 2}
-        <Payment menu={menu} orderRequest={orderRequest} bind:qrCodeString bind:currentStep bind:paymentResponse accessToken={data.user?.token}/>
+        <Payment menu={menu} orderRequest={orderRequest} bind:currentStep bind:paymentResponse accessToken={data.user?.token}/>
     {:else}
         <OrderCompleted bind:paymentResponse cateringId={orderRequest.catering_id}/>
     {/if}

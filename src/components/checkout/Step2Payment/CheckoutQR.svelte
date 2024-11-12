@@ -3,8 +3,9 @@
     import QRCode from '@castlenine/svelte-qrcode';
     import {fade} from 'svelte/transition';
 
-
     export let qrCodeString: string
+
+    $: console.log(qrCodeString)
 </script>
 
 <div class="flex flex-col place-items-center gap-1 p-2 justify-center h-full">

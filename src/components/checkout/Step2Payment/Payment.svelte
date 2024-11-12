@@ -10,13 +10,13 @@
 	export let menu: CateringType;
 	export let orderRequest: OrderRequestType;
 	export let currentStep: number;
-	export let qrCodeString: string;
 	export let accessToken: string | undefined;
 	export let paymentResponse: PaymentResponseType | undefined;
 	import {
 		PUBLIC_WEBSOCKET_LOCATION
 	} from '$env/static/public';
 
+	let qrCodeString: string = "";
 	function progressToNextStep() {
 		currentStep += 1;
 	}
@@ -27,17 +27,15 @@
 
 	let userId = '';
 	onMount(async () => {
-		// console.log('Payment OnMount Called');
+		console.log('Payment OnMount Called');
 		if (!accessToken) {
-			// console.log('No access token');
+			console.log('No access token');
 			return;
 		} else {
 			const response = await createOrder(orderRequest, accessToken);
 			qrCodeString = response.data.qr_string;
 			userId = response.data.ordered_by;
 		}
-
-		// console.log(qrCodeString);
 
 		const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
 		const socket = new WebSocket(`${protocol}://${PUBLIC_WEBSOCKET_LOCATION}/ws/qrcode/${userId}/`);
@@ -71,7 +69,7 @@
 		</div>
 		<div class="border-box-container reverse">
 			<!--        QR Code -->
-			<CheckoutQR bind:qrCodeString />
+			<CheckoutQR {qrCodeString} />
 		</div>
 	</div>
 
