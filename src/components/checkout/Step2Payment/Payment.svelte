@@ -27,9 +27,9 @@
 
 	let userId = '';
 	onMount(async () => {
-		console.log('Payment OnMount Called');
+		// console.log('Payment OnMount Called');
 		if (!accessToken) {
-			console.log('No access token');
+			// console.log('No access token');
 			return;
 		} else {
 			const response = await createOrder(orderRequest, accessToken);
