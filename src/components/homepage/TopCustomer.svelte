@@ -11,7 +11,7 @@
     });
 </script>
 
-<div class="relative overflow-x-auto font-inter">
+<div class="relative overflow-x-auto font-inter max-h-[24rem]">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 z-0">
         <tbody>
         {#each highscoreCustomers as customer, idx}
