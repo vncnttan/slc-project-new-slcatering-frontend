@@ -6,17 +6,17 @@
 	import type { CateringType } from '../../../../types/catering.type';
 	import type { OrderRequestType } from '../../../../types/order-request.type';
 	import type { PaymentResponseType } from '../../../../types/payment-response.type';
+	import { PUBLIC_WEBSOCKET_LOCATION } from '$env/static/public';
+	import { showToast, TOAST_TYPE } from '../../../scripts/helpers';
 
 	export let menu: CateringType;
 	export let orderRequest: OrderRequestType;
 	export let currentStep: number;
 	export let accessToken: string | undefined;
 	export let paymentResponse: PaymentResponseType | undefined;
-	import {
-		PUBLIC_WEBSOCKET_LOCATION
-	} from '$env/static/public';
 
-	let qrCodeString: string = "";
+	let qrCodeString: string = '';
+
 	function progressToNextStep() {
 		currentStep += 1;
 	}
@@ -32,9 +32,15 @@
 			// console.log('No access token');
 			return;
 		} else {
-			const response = await createOrder(orderRequest, accessToken);
-			qrCodeString = response.data.qr_string;
-			userId = response.data.ordered_by;
+
+			let response;
+			try {
+				response = await createOrder(orderRequest, accessToken);
+			} catch (error) {
+				showToast('Error while creating order: ' + error?.response?.data?.message, TOAST_TYPE.ERROR);
+			}
+			qrCodeString = response?.data.qr_string;
+			userId = response?.data.ordered_by;
 		}
 
 		const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
@@ -81,7 +87,7 @@
 <style>
     .page-container {
         display: flex;
-				flex-direction: column-reverse;
+        flex-direction: column-reverse;
 
         gap: 3rem;
         width: 100%;
@@ -89,8 +95,8 @@
 
     @media screen and ( min-width: 1280px ) {
         .page-container {
-						display: grid;
-						order: -1;
+            display: grid;
+            order: -1;
             grid-template-columns: 5fr 3fr;
         }
 
@@ -100,6 +106,6 @@
         border: 1px solid #D7D7D7;
         padding: 1rem;
         border-radius: 0.5rem;
-				display: grid;
+        display: grid;
     }
 </style>

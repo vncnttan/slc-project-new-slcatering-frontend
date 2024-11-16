@@ -5,12 +5,11 @@
 
     export let qrCodeString: string
 
-    $: console.log(qrCodeString)
 </script>
 
 <div class="flex flex-col place-items-center gap-1 p-2 justify-center h-full">
     <img src="{ slcatering_logo }" alt="Logo" class="w-24  object-cover"/>
-    {#if qrCodeString !== ""}
+    {#if qrCodeString && qrCodeString !== ""}
         <QRCode data="{qrCodeString}" />
 
     {:else}
