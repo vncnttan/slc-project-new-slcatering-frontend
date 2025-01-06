@@ -43,13 +43,13 @@
 		<table in:fade={{ delay: 300 }} out:fade class="w-full text-sm text-left rtl:text-right text-gray-500">
 			<thead class="text-sm uppercase text-white bg-gradient-to-b from-slate-700 to-gray-700 rounded-t-xl">
 			<tr>
-				<th scope="col" class="px-2 py-3 text-center">
+				<th scope="col" class="px-2 py-3 text-center hidden md:table-cell">
 					No
 				</th>
 				<th scope="col" class="px-4 py-3">
 					Customer
 				</th>
-				<th scope="col" class="px-1 py-3">
+				<th scope="col" class="px-2 py-3">
 					Qty
 				</th>
 				<th scope="col" class="px-4 py-3 text-center">
@@ -58,10 +58,10 @@
 				<th scope="col" class="py-3 text-center">
 					Notes
 				</th>
-				<th scope="col" class="hidden md:block px-4 py-3 text-center">
+				<th scope="col" class="hidden md:table-cell px-4 py-3 text-center">
 					Total Paid
 				</th>
-				<th scope="col" class="px-4 py-3">
+				<th scope="col" class="px-4 py-3 hidden md:table-cell">
 					Status
 				</th>
 			</tr>
@@ -69,7 +69,7 @@
 			<tbody>
 			{#each orders as order, idx}
 				<tr class="odd:bg-gray-200 even:bg-gray-300 even border-b text-medium">
-					<th scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap text-center">
+					<th scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap text-center hidden md:table-cell">
 						{idx + 1}.
 					</th>
 					<th scope="row" class="px-4 py-4 text-gray-900 whitespace-nowrap">
@@ -84,10 +84,10 @@
 					<td class="py-4 text-center">
 						{order.notes !== "" ? order.notes : "-"}
 					</td>
-					<td class="px-4 py-4 hidden md:block text-center">
+					<td class="px-4 py-4 hidden md:table-cell text-center">
 						{formatPrice(order.variant?.additional_price ? order.variant?.additional_price + order.catering.price : order.catering.price)}
 					</td>
-					<td class="px-4 py-4 font-bold">
+					<td class="px-4 py-4 font-bold hidden md:table-cell">
 						<div
 							class="h-2.5 w-2.5 rounded-full {order.is_paid ? 'bg-green-600' : 'bg-orange-sig'} me-1 inline-block"></div>
 						{order.is_paid ? "Paid" : "Not Paid"}

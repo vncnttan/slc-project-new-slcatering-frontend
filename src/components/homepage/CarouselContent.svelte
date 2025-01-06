@@ -25,7 +25,7 @@
 		 style="background-image: {m.imageLink ? `url('${m.imageLink}')` : 'linear-gradient(90deg, #B02000, #FF370B)'}">
 	<div class="absolute w-full h-96 bg-gradient-to-t from-black/100 to-black/15"></div>
 	<div
-		class="w-full h-96 flex flex-row justify-between place-items-end absolute font-inter p-4 md:p-6 2xl:p-10">
+		class="w-full h-96 flex flex-col md:flex-row justify-between place-items-start md:place-items-end absolute font-inter p-4 md:p-6 2xl:p-10">
 		<a href="/product-detail/{m.id}" class="flex flex-row gap-3 place-items-center">
 			<img
 				src="{m.imageLink ?? 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg'}"

@@ -146,7 +146,7 @@
 	<!-- Footer -->
 	<div class="bg-gradient-to-b from-slate-100 to-gray-100 font-inter mt-8 text-black text-xs">
 		<div class="py-2 responsive-container w-full">
-			<div class="my-2 flex flex-row justify-between w-full">
+			<div class="my-2 flex flex-col px-4 md:px-0 md:flex-row justify-between w-full">
 				<div class="flex flex-col gap-1">
 					<div class="font-bold text-sm">
 						Contact Support
