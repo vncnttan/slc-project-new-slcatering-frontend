@@ -23,6 +23,7 @@
 		previousPage = from?.url.pathname || previousPage;
 	});
 
+	let transactionCounter = {}
 	onMount(async () => {
 		menu = (await getCateringDetailsById(id)).data;
 	});

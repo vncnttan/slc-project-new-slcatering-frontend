@@ -1,4 +1,5 @@
 import {toast} from "@zerodevx/svelte-toast";
+import type { OrderType } from '../../types/order.type';
 
 
 const ERROR_TYPE_TOAST_OPTIONS = [{
@@ -46,4 +47,25 @@ export const formatPrice = (price: number) => {
     }).format(price);
 
     return formatted.slice(0, -3) + ",-";
+}
+
+export const getOrderSummary = (orders: OrderType[]) => {
+    const orderSummaries = {} as Record<string, number>
+
+    for (const order of orders) {
+        if (order.variant) {
+            if (orderSummaries[order.variant.variant_name]) {
+                orderSummaries[order.variant.variant_name] += order.quantity;
+            } else {
+                orderSummaries[order.variant.variant_name] = order.quantity;
+            }
+        } else {
+            if (orderSummaries["Reguler"]) {
+                orderSummaries["Reguler"] += order.quantity;
+            } else {
+                orderSummaries["Reguler"] = order.quantity;
+            }
+        }
+    }
+    return orderSummaries;
 }
